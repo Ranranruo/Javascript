@@ -10,8 +10,10 @@
  * -- 주의사항 --
  * Translator.create() 메서드는 명시적인 행동 없이 실행될 수 없다
  * 코드가 페이지가 로드 되자마자 실행되기 때문에, 브라우저는 AI 모델을 다운로드하거나 초기화할 권한이 없다고 판단한다.
+ * setTimeout, setInterval로 감싸면 명시적인 행동 없이 실행 할 수 있다.
  * (X) js파일을 실행하는 즉시 Translator.create() 메서드를 실행함
  * (O) 특정 버튼을 클릭 시 Trnaslator.create() 메서드를 실행함
+ * (O) Translator.create() 메서드를 setTimeout callback 메서드 안에서 실행
  * 
  * 페이지가 로딩되자마자 Trnaslator.create() 메서드를 실행했을때 나는 오류
  * Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules (at Translator.js:17:20)
