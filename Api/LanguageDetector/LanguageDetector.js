@@ -9,14 +9,23 @@
  * confidence: AI모델의 예측결과에 대한 확신도로 0~1값을 가지며 1에 가까울소록 모델의 예측이 정확할 것이라고 판단할 수 있다.
  * detectedLanguage: 어떤 언인지 감지 결과 (ko, en, hi...)
  */
+if('LanguageDetector' in self) {
+    console.log("현재 브라우저에서 Language Detector API를 지원합니다!");
+}
+
+const availability = await LanguageDetector.availability();
+console.log(availability);
 
 const detector = await LanguageDetector.create(); // 인스턴스 할당
 
-const korean = "한국어입니다."; // 감지할 텍스트
-const english = "It's english"; // 감지할 텍스트
+const korean = "한국어입니다."; // 예측 텍스트
+const english = "It's english"; // 예측 텍스트 
 
-const koreanResult = await detector.detect(korean); // 감지
-const englishResult = await detector.detect(english); // 감지
+const koreanResult = await detector.detect(korean); // 예측
+const englishResult = await detector.detect(english); // 예측
+
+console.log(koreanResult);
+console.log(englishResult);
 
 console.log(koreanResult[0].confidence); // 0.996...
 console.log(englishResult[0].confidence); // 0.996...
